@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="./styles.css" rel="stylesheet" type="text/css">
+    <title>Calculator</title>
+</head>
+<body>
+    <!-- <header>
+        <h1 class="title">Basic Calculator</h1>
+    </header> -->
+
+    <main class="calcu">
+        <p class="info">This page is about a prototype of a basic calculator which calculates <br>addition, subtraction, product and division of the entered numbers.</p>
+        <div class="numbers">
+            <div>
+                <label for="first" class="first">First number:</label>
+                <input type="text" id="first">
+            </div>
+            <div>
+                <label for="second" class="second">Second number:</label>
+                <input type="text" id="second">
+            </div>
+        </div>
+
+        <div class="operations">
+            <div class="addition">
+                <button id="addition" onclick="addition()">Addition</button>
+            </div>
+    
+            <div class="subtraction">
+                <button id="subtraction" onclick="subtraction()">Subtraction</button>
+            </div>
+
+            <div class="multiply">
+                <button id="multiply" onclick="multiply()">Multiply</button>
+            </div>
+
+            <div class="divide">
+                <button id="divide" onclick="divide()">Divide</button>
+            </div>
+        </div>
+
+        <p class="resul"></p>
+    </main>
+
+
+    <footer>
+        <p class="pie">Espero te haya gustado</p>
+    </footer>
+    <script src="./main.js"></script>
+</body>
+</html>
