@@ -85,10 +85,10 @@ operations.appendChild(div_divide);
 const button_divide = document.createElement('button');
 button_divide.setAttribute('id','divide');
 button_divide.setAttribute('onclick','divide()');
-button_divide.innerText = 'divide';
+button_divide.innerText = 'Divide';
 div_divide.appendChild(button_divide);
 
-//Resultado
+//resultado
 const pResul = document.createElement('p');
 pResul.classList.add('resul');
 main.appendChild(pResul);
@@ -98,24 +98,28 @@ let first = document.querySelector('#first');
 let second = document.querySelector('#second');
 let resul = document.querySelector('.resul');
 
+function calculation(result){
+    let state = first.value && second.value;
+    resul.innerHTML = state?('The result of the sum is: ' + result):('Mistake!!! Please enter the 2 numerical values.');
+}
 function addition(){
     let result = parseFloat(first.value,10) + parseFloat(second.value,10);
-    resul.innerHTML = 'The result of the sum is: ' + result;
+    calculation(result);
 }
 
 function subtraction(){
     let result = parseFloat(first.value,10) - parseFloat(second.value,10);
-    resul.innerHTML = 'The result of the subtraction is: ' + result;
+    calculation(result);
 }
 
 function multiply(){
     let result = parseFloat(first.value,10) * parseFloat(second.value,10);
-    resul.innerHTML = 'The result of the multiplication is: ' + result;
+    calculation(result);
 }
 
 function divide(){
     let result = parseFloat(first.value,10) / parseFloat(second.value,10);
-    resul.innerHTML = 'The result of the division is: ' + result;
+    calculation(result);
 }
 
 //footer
