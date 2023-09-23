@@ -1,12 +1,14 @@
+import React from "react";
+import { CalProvider } from "./context";
 import Header from "./Header";
 import Center from "./Center";
 
 function App() {
   return (
-    <div className='text-white text-center'>
+    <CalProvider>
       <Header />
       <Center />
-    </div>
+    </CalProvider>
   );
 }
 
