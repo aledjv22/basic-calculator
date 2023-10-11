@@ -1,15 +1,21 @@
-import React from "react";
-import { CalProvider } from "./context";
-import Header from "./Header";
-import Center from "./Center";
+import Display from "./components/Display";
+import Key from "./components/Key";
+import Base from "./components/Base";
+import RowKeys from './components/RowKeys';
 
 function App() {
   return (
-    <CalProvider>
-      <Header />
-      <Center />
-    </CalProvider>
+    <div className='grid place-content-center w-full h-full mt-10'>
+      <Base/>
+      <Display />
+      <div className='grid place-content-center w-full items-center absolute h-[380px] mt-[54px]'>
+        <RowKeys value="789-" />
+        <RowKeys value="456+" />
+        <RowKeys value="123/" />
+        <RowKeys value="0.=*" />
+      </div>
+    </div>
   );
 }
 
-export default App
+export default App;
