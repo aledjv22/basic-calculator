@@ -1,74 +1,60 @@
 import React, {useState} from "react";
-import addition from "../calc/addition";
-import subtraction from "../calc/subtraction";
-import multiply from "../calc/multiply";
-import divide from "../calc/divide";
+import addition from "../utils/addition";
+import subtraction from "../utils/subtraction";
+import multiply from "../utils/multiply";
+import divide from "../utils/divide";
 
 const CalContext = React.createContext();
 
 function CalProvider({ children }){
 
-    const [isEmpty, setIsEmpty] = useState(true);
-
     const [fstNumber, setFstNumber] = useState('');
 
     const [sndNumber, setSndNumber] = useState('');
 
-    const [result, setResult] = useState('');
+    const [result, setResult] = useState('Syntax Error');
 
     const [operation, setOperation] = useState('');
 
-    const add = (a,b) => {
-        if(a !== '' && b !== ''){
-            a = parseInt(a);
-            b = parseInt(b);
-            setIsEmpty(false);
-            return setResult(addition(a,b));
-        }
+    const [solve, setSolve] = useState(false);
+
+    const isEmpty = (a) => {
+        return a === '';
     };
 
-    const sub = (a,b) => {
-        if(a !== '' && b !== ''){
-            a = parseInt(a);
-            b = parseInt(b);
-            setIsEmpty(false);
-            return setResult(subtraction(a,b));
+    const calculation = (a) => {
+        switch (a) {
+            case '+':
+                setResult(addition(fstNumber, sndNumber));
+                break;
+            case '-':
+                setResult(subtraction(fstNumber, sndNumber));
+                break;
+            case 'x':
+                setResult(multiply(fstNumber, sndNumber));
+                break;
+            case '÷':
+                setResult(divide(fstNumber, sndNumber));
+                break;
+            default:
+                break;
         }
-    }
-
-    const mul = (a,b) => {
-        if(a !== '' && b !== ''){
-            a = parseInt(a);
-            b = parseInt(b);
-            setIsEmpty(false);
-            return setResult(multiply(a,b));
-        }
-    }
-
-    const div = (a,b) => {
-        if(a !== '' && b !== ''){
-            a = parseInt(a);
-            b = parseInt(b);
-            setIsEmpty(false);
-            return setResult(divide(a,b));
-        }
-    }
+    };
 
     return (
         <CalContext.Provider value={{
             isEmpty,
-            setIsEmpty,
             fstNumber,
             setFstNumber,
             sndNumber,
             setSndNumber,
-            add,
-            sub,
-            mul,
-            div,
             result,
+            setResult,
             operation,
-            setOperation
+            setOperation,
+            calculation,
+            solve, 
+            setSolve
         }}>
             {children}
         </CalContext.Provider>
